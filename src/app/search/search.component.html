@@ -1,0 +1,12 @@
+<div class="searchField">
+  <input type="text"
+         placeholder="Search shows"
+         [(ngModel)]="searchInput"
+         class="searchInput"
+         (keyup.enter)="makeSearch()">
+  <button (click)="makeSearch()" class="searchButton">search</button>
+</div>
+
+  <app-show-item #ShowItemComponent></app-show-item>
+
+

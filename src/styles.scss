@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+img{
+  height: 295px;
+  width: 210px;
+  object-fit: cover;
+}
+.row{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}

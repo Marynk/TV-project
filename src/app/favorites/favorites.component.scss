@@ -1,0 +1,39 @@
+.searchField{
+  margin: 10vh auto;
+  text-align: center;
+
+  .searchInput{
+    line-height: 2rem;
+    padding-left:5px;
+    width:30vw;
+  }
+
+  .searchButton{
+    line-height: 2rem;
+  }
+}
+
+.results{
+  display:grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  justify-content: center;
+
+}
+.showitem{
+  border: 1px solid #87EFC0;
+  width:210px;
+  margin: 10px;
+  padding:10px;
+
+}
+
+.star{
+  width: 40px;
+  height: 40px;
+}
+
+.row{
+  justify-content: space-around;
+}
+

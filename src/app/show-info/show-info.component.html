@@ -1,0 +1,17 @@
+
+<div class="wrapper">
+
+  <img src={{showInfo?.image}}>
+
+  <div class="text">
+    <h3>{{showInfo?.name}}</h3>
+    <p>language: {{showInfo?.language}}</p>
+    <p>runtime: {{showInfo?.runtime}} minutes </p>
+    <p>status: {{showInfo?.status}} </p>
+    <p>premiere: {{showInfo?.premiered}} </p>
+  </div>
+
+</div>
+
+<button class="button" (click)="goBack()" >back</button>
+

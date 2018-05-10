@@ -1,0 +1,15 @@
+<div class="results">
+  <div *ngFor="let show of shows"
+       class="showitem"
+       (click)="openDetails(show.id)">
+
+    <img [src]="show.image" class="showimg">
+    <div class="row">
+      <h3>{{show.name}}</h3>
+      <div class="star" [ngStyle]="{'background-image': makeStyle(show.favorite)} "
+           (click)="Favorites($event, show)">
+      </div>
+    </div>
+
+  </div>
+</div>
