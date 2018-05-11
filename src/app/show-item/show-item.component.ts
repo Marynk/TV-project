@@ -23,10 +23,10 @@ export class ShowItemComponent implements OnInit {
     this.favorites = JSON.parse(localStorage.getItem('favorites'));
   }
 
-  displayShows(input: string){
+  displayShows(input: string): void{
     this.request.getShows(input)
       .pipe(
-        switchMap((item: any) => from(item)),
+        switchMap((item: any) => from(item)),      // так я и не поняла, как использовать тут reduce
         map(({show})=> show)
       )
       .subscribe(({name, id, image}) => {
@@ -40,7 +40,7 @@ export class ShowItemComponent implements OnInit {
       });
   }
 
-  displayFavorites(id: number) {
+  displayFavorites(id: number): void {
     this.request.getDetails(id)
       .subscribe(show => {
         this.shows.push({
@@ -52,11 +52,11 @@ export class ShowItemComponent implements OnInit {
       });
   }
 
-  makeStyle(favStat: boolean) {
+  makeStyle(favStat: boolean): string {
     return favStat ? 'url("/assets/sharp_star.png")' : 'url("/assets/sharp_star_border.png")';
   }
 
-  makeFavorites(event: MouseEvent, show: ShowModel) {
+  makeFavorites(event: MouseEvent, show: ShowModel): void {
     event.stopPropagation();
     if (!show.favorite) {
       this.favorites.push(show.id);
@@ -69,7 +69,7 @@ export class ShowItemComponent implements OnInit {
 
   }
 
-  openDetails(id: number) {
+  openDetails(id: number): void {
     this.router.navigate([`/detail/${id}`]);
   }
 

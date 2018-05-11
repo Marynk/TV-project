@@ -17,7 +17,7 @@ export class FavoritesComponent implements AfterViewInit {
     }
   }
 
-  initShows(favorites: number[]) {
+  initShows(favorites: number[]): void {
     favorites.forEach(id => {
       this.ShowItem.displayFavorites(id);
     });

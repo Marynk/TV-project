@@ -9,7 +9,7 @@ import { Location } from "@angular/common";
   styleUrls: ['./show-info.component.scss']
 })
 export class ShowInfoComponent implements OnInit {
-  showInfo;
+  showInfo: any;
   id: number;
 
   constructor(private route: ActivatedRoute,
@@ -22,13 +22,12 @@ export class ShowInfoComponent implements OnInit {
     this.request.getDetails(this.id)
       .subscribe(result => {
         this.showInfo = result;
-
         this.showInfo.image = this.showInfo.image ? this.showInfo.image.medium : '/assets/noimage.png';
 
       });
   }
 
-  goBack() {
+  goBack(): void {
     this.location.back();
   }
 }

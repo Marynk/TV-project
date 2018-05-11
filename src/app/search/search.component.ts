@@ -12,7 +12,6 @@ export class SearchComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.searchInput = sessionStorage.inputval;
-
   }
 
   ngAfterViewInit() {
@@ -21,15 +20,13 @@ export class SearchComponent implements OnInit, AfterViewInit {
     }
   }
 
-  makeSearch() {
-    this.sendToSession('inputval', this.searchInput);
+  makeSearch(): void {
+    sessionStorage.setItem('inputval', this.searchInput);
     this.ShowItem.displayShows(this.searchInput);
-
   }
 
-  sendToSession(key: string , value: string) {
-    sessionStorage.setItem(key, value);
-  }
+
+
 
 
 
