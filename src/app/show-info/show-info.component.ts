@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {RequestService} from '../request.service';
-import {Observable} from 'rxjs/Observable';
 import { Location } from "@angular/common";
 
 @Component({
@@ -13,10 +12,6 @@ export class ShowInfoComponent implements OnInit {
   showInfo;
   id: number;
 
-  goBack(){
-    this.location.back();
-  }
-
   constructor(private route: ActivatedRoute,
               private request: RequestService,
               private location: Location) { }
@@ -27,8 +22,17 @@ export class ShowInfoComponent implements OnInit {
     this.request.getDetails(this.id)
       .subscribe(result => {
         this.showInfo = result;
-        console.log(this.showInfo)
+
         this.showInfo.image = this.showInfo.image ? this.showInfo.image.medium : '/assets/noimage.png';
+
       });
   }
+
+  goBack() {
+    this.location.back();
+  }
 }
+
+
+
+

@@ -7,7 +7,7 @@
     <div class="row">
       <h3>{{show.name}}</h3>
       <div class="star" [ngStyle]="{'background-image': makeStyle(show.favorite)} "
-           (click)="Favorites($event, show)">
+           (click)="makeFavorites($event, show)">
       </div>
     </div>
 

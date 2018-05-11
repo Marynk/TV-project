@@ -1,7 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {ShowModel} from '../show.model';
-import {RequestService} from '../request.service';
-import {Router} from '@angular/router';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {ShowItemComponent} from '../show-item/show-item.component';
 
 @Component({
@@ -9,27 +6,20 @@ import {ShowItemComponent} from '../show-item/show-item.component';
   templateUrl: './favorites.component.html',
   styleUrls: ['./favorites.component.scss']
 })
-export class FavoritesComponent implements OnInit {
+export class FavoritesComponent implements AfterViewInit {
   @ViewChild ('ShowItem') ShowItem: ShowItemComponent;
-
   favorites: number[] = [];
 
-  initShows(favorites) {
-    favorites.forEach(id => {
-      this.ShowItem.displayFavorites(id);
-
-    });
-  }
-
-  constructor(private request: RequestService,
-              private router: Router) { }
-
-  ngOnInit() {
+  ngAfterViewInit() {
     this.favorites = JSON.parse(localStorage.getItem('favorites'));
     if (this.favorites) {
       this.initShows(this.favorites);
     }
-
   }
 
+  initShows(favorites: number[]) {
+    favorites.forEach(id => {
+      this.ShowItem.displayFavorites(id);
+    });
+  }
 }
